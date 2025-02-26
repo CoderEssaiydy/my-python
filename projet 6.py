@@ -1,33 +1,61 @@
-your_libary = []
-your_libary.append(input("enter the name of a book you own:\n"))
-book = input("enter the name of another book you own (or press enter to skip)\n")
-if book :
-    your_libary.append(book)
-    print (f"your libary : {your_libary}")
-else :
-    print (f"your libary {your_libary}")
-your_wishlist = []
-your_wishlist.append(input("enter the name of a book you wish to have in the future : \n"))
-book_future = input ("enter the name of another book you wish to have ( or press enter to skip) \n")
-if book_future :
-    your_wishlist.append(book_future)
-    print(f"your wishlist: {your_wishlist}")
-else :
-    print (f"your wishlist : {your_wishlist}")
-updated_libary = []
-updated_wishlist = []
-book_quired = input ("enter the name of abook from your wishlist that you've a quired (or press enter to skip):\n")
-if book_quired in your_wishlist : 
-   your_libary.append(book_quired)
-   your_wishlist.remove(book_quired)
-   print (f"updated libary : {your_libary}")
-   print (f"updated wishlist : {your_wishlist}")
+import random
+rock_ascci = ("""
+       _______
+   ---'   ____)
+         (_____)
+         (_____)
+         (____)
+   ---.__(___) """)
+paper_ascci = (""" 
+       _______
+   ---'    ____)____
+              ______)
+             _______)
+            _______)
+   ---.__________)""")
+scissors_ascci = ("""
+    _______
+   ---'   ____)____
+             ______)
+          __________)
+         (____)
+   ---.__(___)
+""")
+print("welcome to the rock , paper, scissors game :")
+choice = input("press to continue or type (help) for the rules help :\n").lower()
+if choice == "help" :
+       print("       ********RULES********")
+       print("1) you choose and the computer chooses")
+       print("2) rock smaches scissors -> rock wins")
+       print("3) scissors cut paper -> scissors win")
+       print("4) paper covers rock -> paper wins")
+
+user_choice = input("enter your choice ( rock , paper , scissors ):\n").lower()
+if user_choice not in ["rock" ,"paper", "scissors"] :
+       print ("invalid choice . please run the program again and choose rock , paper , or scissors ")
 else : 
-    print (f"your libary : {your_libary}")
-    print (f"your wishlist : { your_wishlist}")
-book_donate = input ("enter the name of a book from your libary you wish to donate ( or press enter to skip):\n")
-if book_donate in your_libary :
-   your_libary.remove(book_donate)
-   print (f"final libary after donations : {your_libary}")
-else :
-    print (f"final libary {your_libary}")
+       if user_choice == "rock" :
+              print(f"your choice : \n{rock_ascci}")
+       elif user_choice == "paper" :
+            print(f"your choice : \n{paper_ascci}")
+       else : 
+            print(f"your choice : \n{scissors_ascci}")
+computer_choice = random.choice(["rock", "paper", "scissors"])
+if computer_choice == "rock" :
+      print(f"computer_choice : \n{rock_ascci}")
+elif computer_choice == "paper" :
+      print (f"computer_choice : \n{paper_ascci}")
+else : 
+      print(f"computer_choice : \n{scissors_ascci}")
+
+if user_choice == computer_choice :
+      print(" it's a tie ")
+elif ( user_choice == "rock" and computer_choice == "scissors" 
+     or
+     user_choice == "paper" and computer_choice == "rock"
+     or
+     user_choice == "scissors" and computer_choice == "paper") :
+      print ("you win ...")
+else : 
+      print (" you loss ...")
+  
