@@ -1,25 +1,33 @@
-import random 
-print("welcome to the coin guessing game!")
-print("choose a method to toos the coin")
-print("1 : using random.random()")
-print("2 : using random.randint()")
-choice = input("enter your choice (1 or 2):\n")
-if choice == "1" :
-  number = random.random ()
-  if number >= 0.5 :
-    computer_result = "heads"
-  else :
-    computer_result = "tails" 
-elif choice == "2" :
-  if  random.randint(0,1) == 0 :
-      computer_result = "heads" 
-  else :
-       computer_result = "tails" 
+your_libary = []
+your_libary.append(input("enter the name of a book you own:\n"))
+book = input("enter the name of another book you own (or press enter to skip)\n")
+if book :
+    your_libary.append(book)
+    print (f"your libary : {your_libary}")
 else :
-  print ("invild choice")
-user_choice = input ("enter your guess (heads or tails ) : \n")
-if user_choice.lower() == computer_result.lower() :
-   print ("congratulations ! you won !")
+    print (f"your libary {your_libary}")
+your_wishlist = []
+your_wishlist.append(input("enter the name of a book you wish to have in the future : \n"))
+book_future = input ("enter the name of another book you wish to have ( or press enter to skip) \n")
+if book_future :
+    your_wishlist.append(book_future)
+    print(f"your wishlist: {your_wishlist}")
+else :
+    print (f"your wishlist : {your_wishlist}")
+updated_libary = []
+updated_wishlist = []
+book_quired = input ("enter the name of abook from your wishlist that you've a quired (or press enter to skip):\n")
+if book_quired in your_wishlist : 
+   your_libary.append(book_quired)
+   your_wishlist.remove(book_quired)
+   print (f"updated libary : {your_libary}")
+   print (f"updated wishlist : {your_wishlist}")
 else : 
-   print("sorry,you lost")
-   print(f"the computer coin toss result was : {computer_result}")
+    print (f"your libary : {your_libary}")
+    print (f"your wishlist : { your_wishlist}")
+book_donate = input ("enter the name of a book from your libary you wish to donate ( or press enter to skip):\n")
+if book_donate in your_libary :
+   your_libary.remove(book_donate)
+   print (f"final libary after donations : {your_libary}")
+else :
+    print (f"final libary {your_libary}")
